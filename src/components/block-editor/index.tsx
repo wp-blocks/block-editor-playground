@@ -21,7 +21,7 @@ import { useEffect, useState, useMemo } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import Sidebar from './sidebar';
+import Sidebar from '../sidebar';
 
 function BlockEditor( { settings: _settings } ) {
 	const [ blocks, updateBlocks ] = useState( [] );
@@ -52,7 +52,7 @@ function BlockEditor( { settings: _settings } ) {
 	// }, [ canUserCreateMedia, _settings ] );
 
 	useEffect( () => {
-		const storedBlocks = window.localStorage.getItem( 'getdavesbeBlocks' );
+		const storedBlocks = window.localStorage.getItem( 'playgroundBlocks' );
 
 		if ( storedBlocks?.length ) {
 			handleUpdateBlocks( () => parse( storedBlocks ) );
@@ -79,13 +79,13 @@ function BlockEditor( { settings: _settings } ) {
 	function handlePersistBlocks( newBlocks ) {
 		updateBlocks( newBlocks );
 		window.localStorage.setItem(
-			'getdavesbeBlocks',
+			'playgroundBlocks',
 			serialize( newBlocks )
 		);
 	}
 
 	return (
-		<div className="getdavesbe-block-editor">
+		<div id="block-editor-playground">
 			<BlockEditorProvider
 				value={ blocks }
 				onInput={ handleUpdateBlocks }
@@ -101,7 +101,7 @@ function BlockEditor( { settings: _settings } ) {
 					<BlockTools>
 						<WritingFlow>
 							<ObserveTyping>
-								<BlockList className="getdavesbe-block-editor__block-list" />
+								<BlockList className="block-editor-playground__block-list" />
 							</ObserveTyping>
 						</WritingFlow>
 					</BlockTools>

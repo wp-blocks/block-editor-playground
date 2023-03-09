@@ -4,12 +4,12 @@ import { createRoot } from 'react-dom/client';
 
 import Editor from './editor';
 
-import './style.css';
+import './style.scss';
 
 document.addEventListener( 'DOMContentLoaded', () => {
 	registerCoreBlocks();
 
-	createRoot( document.getElementById( 'root' )! ).render(
+	createRoot( document.getElementById( 'block-editor-playground' )! ).render(
 		<StrictMode>
 			<Editor settings={ {} } />
 		</StrictMode>
