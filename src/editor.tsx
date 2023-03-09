@@ -9,6 +9,7 @@ import {
 import { StrictMode } from '@wordpress/element';
 import { FullscreenMode, InterfaceSkeleton } from '@wordpress/interface';
 import { ShortcutProvider } from '@wordpress/keyboard-shortcuts';
+import '@wordpress/format-library';
 
 /**
  * Internal dependencies
@@ -23,10 +24,9 @@ function Editor( { settings } ) {
 		<>
 			<StrictMode>
 				<ShortcutProvider>
-					<FullscreenMode isActive={ false } />
+					<FullscreenMode isActive={ true } />
 					<SlotFillProvider>
 						<InterfaceSkeleton
-							header={ <Header /> }
 							sidebar={ <Sidebar /> }
 							content={
 								<>
@@ -35,7 +35,6 @@ function Editor( { settings } ) {
 								</>
 							}
 						/>
-
 						<Popover.Slot />
 					</SlotFillProvider>
 				</ShortcutProvider>

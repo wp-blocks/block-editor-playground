@@ -16,8 +16,8 @@ import {
 import { serialize, parse } from '@wordpress/blocks';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect, useState, useMemo } from '@wordpress/element';
-// import { uploadMedia } from '@wordpress/media-utils';
 
+// import { uploadMedia } from '@wordpress/media-utils';
 /**
  * Internal dependencies
  */
@@ -85,7 +85,7 @@ function BlockEditor( { settings: _settings } ) {
 	}
 
 	return (
-		<div id="block-editor-playground">
+		<div className="block-editor-playground">
 			<BlockEditorProvider
 				value={ blocks }
 				onInput={ handleUpdateBlocks }
