@@ -1,14 +1,3 @@
-@import "@wordpress/interface/src/style.scss";
-
-
-@import "@wordpress/components/build-style/style.css";
-@import "@wordpress/block-editor/build-style/style.css";
-@import "@wordpress/block-library/build-style/style.css";
-@import "@wordpress/block-library/build-style/editor.css";
-@import "@wordpress/block-library/build-style/theme.css";
-@import "@wordpress/format-library/build-style/style.css";
-
-
 // Internal
 @import "./components/header/styles";
 @import "./components/sidebar/styles";
