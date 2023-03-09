@@ -13,43 +13,19 @@ import {
 	WritingFlow,
 	ObserveTyping,
 } from '@wordpress/block-editor';
-import { serialize, parse } from '@wordpress/blocks';
+import { serialize, parse, type BlockInstance } from '@wordpress/blocks';
+import { Popover } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { useEffect, useState, useMemo } from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
 
-// import { uploadMedia } from '@wordpress/media-utils';
 /**
  * Internal dependencies
  */
 import Sidebar from '../sidebar';
 
 function BlockEditor( { settings: _settings } ) {
-	const [ blocks, updateBlocks ] = useState( [] );
+	const [ blocks, updateBlocks ] = useState< BlockInstance[] >( [] );
 	const { createInfoNotice } = useDispatch( 'core/notices' );
-
-	const canUserCreateMedia = useSelect( ( select ) => {
-		const _canUserCreateMedia = select( 'core' ).canUser(
-			'create',
-			'media'
-		);
-		return _canUserCreateMedia || _canUserCreateMedia !== false;
-	}, [] );
-
-	// const settings = useMemo( () => {
-	// 	if ( ! canUserCreateMedia ) {
-	// 		return _settings;
-	// 	}
-	// 	return {
-	// 		..._settings,
-	// 		mediaUpload( { onError, ...rest } ) {
-	// 			uploadMedia( {
-	// 				wpAllowedMimeTypes: _settings.allowedMimeTypes,
-	// 				onError: ( { message } ) => onError( message ),
-	// 				...rest,
-	// 			} );
-	// 		},
-	// 	};
-	// }, [ canUserCreateMedia, _settings ] );
 
 	useEffect( () => {
 		const storedBlocks = window.localStorage.getItem( 'playgroundBlocks' );
@@ -72,11 +48,11 @@ function BlockEditor( { settings: _settings } ) {
 	 * @param blocks
 	 * @param _blocks
 	 */
-	function handleUpdateBlocks( _blocks ) {
+	function handleUpdateBlocks( _blocks: BlockInstance[] ) {
 		updateBlocks( _blocks );
 	}
 
-	function handlePersistBlocks( newBlocks ) {
+	function handlePersistBlocks( newBlocks: BlockInstance[] ) {
 		updateBlocks( newBlocks );
 		window.localStorage.setItem(
 			'playgroundBlocks',
@@ -96,16 +72,17 @@ function BlockEditor( { settings: _settings } ) {
 				<Sidebar.InspectorFill>
 					<BlockInspector />
 				</Sidebar.InspectorFill>
-				<div className="editor-styles-wrapper">
-					<BlockEditorKeyboardShortcuts.Register />
-					<BlockTools>
+				<BlockTools>
+					<div className="editor-styles-wrapper">
+						<BlockEditorKeyboardShortcuts.Register />
 						<WritingFlow>
 							<ObserveTyping>
 								<BlockList className="block-editor-playground__block-list" />
 							</ObserveTyping>
 						</WritingFlow>
-					</BlockTools>
-				</div>
+					</div>
+				</BlockTools>
+				<Popover.Slot />
 			</BlockEditorProvider>
 		</div>
 	);

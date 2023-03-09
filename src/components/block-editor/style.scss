@@ -12,4 +12,14 @@
     .wp-block {
         max-width: $content-width;
     }
+
+		.wp-block[data-align="wide"],
+		.wp-block.alignwide {
+			max-width: $content-width;
+		}
+
+		.wp-block[data-align="full"],
+		.wp-block.alignfull {
+			max-width: none;
+		}
 }

@@ -1,10 +1,7 @@
 // Internal
-@import "./components/header/styles";
-@import "./components/sidebar/styles";
-@import "./components/block-editor/styles";
-
-$editor-font: 'sans-serif';
-
+@import "./components/block-editor/style";
+@import "./components/notices/style";
+@import "./components/sidebar/style";
 
 // In order to use mix-blend-mode, this element needs to have an explicitly set background-color
 // We scope it to .wp-toolbar to be wp-admin only, to prevent bleed into other implementations
@@ -25,24 +22,6 @@ body.block-editor-page {
 	min-height: calc(100vh - 32px);
 }
 
-.editor-styles-wrapper {
-	width: 100%;
-
-	@include break-small {
-		width: calc(100% - #{$sidebar-width});
-	}
-	// We need the styles scoped to "body" to be added to the
-	// div.editor-styles wrapper
-	font-family: $editor-font;
-	font-size: $editor-font-size;
-	line-height: $editor-line-height;
-	color: $gray-900;
-
-	// Important all other selectors scoped underneath
-	// `div.editor-styles-wrapper`
-	// @import "~@wordpress/editor/src/editor-styles.scss";
-}
-
 .block-editor-playground,
 // The modals are shown outside the .block-editor-playground wrapper, they need these styles.
 .components-modal__frame {
@@ -50,7 +29,7 @@ body.block-editor-page {
 }
 
 .block-editor-block-breadcrumb {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   z-index: 1;
   padding: 5px;

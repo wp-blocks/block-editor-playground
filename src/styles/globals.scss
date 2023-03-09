@@ -1,8 +1,10 @@
+@import "@wordpress/base-styles/colors";
 @import "@wordpress/base-styles/variables";
 @import "@wordpress/base-styles/mixins";
 @import "@wordpress/base-styles/breakpoints";
 @import "@wordpress/base-styles/animations";
 @import "@wordpress/base-styles/z-index";
+@import "@wordpress/base-styles/default-custom-properties";
 
 @import "@wordpress/interface/src/style.scss";
 
@@ -14,3 +16,8 @@
 @import "@wordpress/block-library/build-style/editor.css";
 @import "@wordpress/block-library/build-style/theme.css";
 @import "@wordpress/format-library/build-style/style.css";
+
+$editor-font: 'sans-serif';
+
+@import "./reset";
+@import "./editor-styles";

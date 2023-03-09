@@ -1,4 +1,4 @@
-.playground-sidebar {
+.playground__sidebar {
 	background: $white;
 	border-left: $border-width solid $gray-200;
 	bottom: 0;
@@ -22,6 +22,8 @@
 	// 	top: $admin-bar-height + $header-height;
 	// }
 
+	// Temporarily disable the sidebar on mobile
+	display: none;
 	@include break-small() {
 		display: block;
 	}

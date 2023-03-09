@@ -1,12 +1,9 @@
 /**
  * WordPress dependencies
  */
-import {
-	Popover,
-	SlotFillProvider,
-	FocusReturnProvider,
-} from '@wordpress/components';
-import { StrictMode } from '@wordpress/element';
+import { registerCoreBlocks } from '@wordpress/block-library';
+import { SlotFillProvider, FocusReturnProvider } from '@wordpress/components';
+import { StrictMode, useEffect } from '@wordpress/element';
 import { FullscreenMode, InterfaceSkeleton } from '@wordpress/interface';
 import { ShortcutProvider } from '@wordpress/keyboard-shortcuts';
 import '@wordpress/format-library';
@@ -15,11 +12,15 @@ import '@wordpress/format-library';
  * Internal dependencies
  */
 import BlockEditor from './components/block-editor';
-import Header from './components/header';
+// import Header from './components/header';
 import Notices from './components/notices';
 import Sidebar from './components/sidebar';
 
-function Editor( { settings } ) {
+function Editor( { settings }: { settings: Record< string, unknown > } ) {
+	useEffect( () => {
+		registerCoreBlocks();
+	}, [] );
+
 	return (
 		<>
 			<StrictMode>
@@ -35,7 +36,6 @@ function Editor( { settings } ) {
 								</>
 							}
 						/>
-						<Popover.Slot />
 					</SlotFillProvider>
 				</ShortcutProvider>
 			</StrictMode>
