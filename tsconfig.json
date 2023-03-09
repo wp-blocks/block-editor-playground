@@ -1,0 +1,6 @@
+{
+	"extends": "./tsconfig.base",
+	"files": [],
+	"references": [{ "path": "./src" }],
+	"exclude": ["./lint-staged.config.js"]
+}

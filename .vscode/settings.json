@@ -1,0 +1,38 @@
+{
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.rulers": [84],
+	"editor.formatOnSave": true,
+	"files.encoding": "utf8",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/tsconfig.tsbuildinfo": true
+	},
+	"search.exclude": {
+		"build/**": true,
+		"dist/**": true,
+		"lib/**": true,
+		"node_modules/**": true,
+		"package-lock.json": true
+	},
+	"editor.quickSuggestionsDelay": 1000,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"eslint.validate": ["javascript", "javascript-react", "typescript", "typescript-react"],
+	"typescript.autoClosingTags": false,
+	"typescript.suggest.completeJSDocs": false,
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"cSpell.words": [],
+	"cSpell.ignorePaths": [
+		"**/package-lock.json",
+		"**/build/**",
+		"**/node_modules/**",
+		"**/vscode-extension/**",
+		"**/.git/objects/**",
+		"./vscode/**"
+	],
+	"typescript.tsdk": "node_modules/typescript/lib"
+}

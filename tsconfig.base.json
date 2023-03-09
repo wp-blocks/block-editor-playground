@@ -1,0 +1,8 @@
+{
+	"extends": "@wp-blocks/tsconfig",
+	"compilerOptions": {
+		"rootDir": ".",
+		"module": "esnext",
+		"typeRoots": ["./node_modules/@types"]
+	}
+}
