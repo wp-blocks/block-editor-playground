@@ -1,8 +1,9 @@
 /**
  * WordPress dependencies
  */
+import { BlockBreadcrumb } from '@wordpress/block-editor';
 import { registerCoreBlocks } from '@wordpress/block-library';
-import { SlotFillProvider, FocusReturnProvider } from '@wordpress/components';
+import { SlotFillProvider } from '@wordpress/components';
 import { StrictMode, useEffect } from '@wordpress/element';
 import { FullscreenMode, InterfaceSkeleton } from '@wordpress/interface';
 import { ShortcutProvider } from '@wordpress/keyboard-shortcuts';
@@ -12,7 +13,6 @@ import '@wordpress/format-library';
  * Internal dependencies
  */
 import BlockEditor from './components/block-editor';
-// import Header from './components/header';
 import Notices from './components/notices';
 import Sidebar from './components/sidebar';
 
@@ -29,6 +29,7 @@ function Editor( { settings }: { settings: Record< string, unknown > } ) {
 					<SlotFillProvider>
 						<InterfaceSkeleton
 							sidebar={ <Sidebar /> }
+							footer={ <BlockBreadcrumb /> }
 							content={
 								<>
 									<Notices />

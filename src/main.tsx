@@ -5,7 +5,11 @@ import Editor from './editor';
 import './style.scss';
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	createRoot( document.getElementById( 'block-editor-playground' )! ).render(
-		<Editor settings={ {} } />
-	);
+	const root = document.getElementById( 'block-editor-playground' );
+	if ( ! root ) {
+		throw new Error(
+			'Root element `block-editor-playground` missing from document'
+		);
+	}
+	createRoot( root ).render( <Editor settings={ {} } /> );
 } );

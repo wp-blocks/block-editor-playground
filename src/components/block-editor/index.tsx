@@ -4,7 +4,6 @@
 // import '@wordpress/editor'; // This shouldn't be necessary
 import '@wordpress/format-library';
 import {
-	BlockBreadcrumb,
 	BlockEditorKeyboardShortcuts,
 	BlockEditorProvider,
 	BlockList,
@@ -68,7 +67,6 @@ function BlockEditor( { settings: _settings } ) {
 				onChange={ handlePersistBlocks }
 				settings={ {} }
 			>
-				<BlockBreadcrumb />
 				<Sidebar.InspectorFill>
 					<BlockInspector />
 				</Sidebar.InspectorFill>
